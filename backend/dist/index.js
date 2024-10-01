@@ -26,7 +26,7 @@ const passwordResetLimiter = (0, express_rate_limit_1.default)({
 // Store OTPs in a simple in-memory object
 const otpStore = {};
 // Endpoint to generate and log OTP with rate limiting
-app.post('/generate-otp', otpLimiter, (req, res) => {
+app.post('/generate-otp', (req, res) => {
     console.log(req.body);
     const email = req.body.email;
     if (!email) {

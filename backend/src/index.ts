@@ -27,7 +27,7 @@ const passwordResetLimiter = rateLimit({
 const otpStore: Record<string, string> = {};
 
 // Endpoint to generate and log OTP with rate limiting
-app.post('/generate-otp', otpLimiter, (req, res) => {
+app.post('/generate-otp', (req, res) => {
   console.log(req.body);
   const email = req.body.email;
   if (!email) {
